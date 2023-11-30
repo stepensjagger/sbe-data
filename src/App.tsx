@@ -14,13 +14,13 @@ function App() {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    const dataProcessed = DataProcessed(dataToLoop, timesToLoop);
+    const dataProcessed = DataProcessed(dataToLoop, timesToLoop).join("\n");
     navigator.clipboard.writeText(dataProcessed.toString());
   };
 
 
 
-  
+
   return (
     <form onSubmit={handleSubmit}>
       <label>
@@ -48,5 +48,7 @@ function DataProcessed(dataToLoop: any, timesToLoop: number): any[] {
   }
   return dataStored;
 }
+
+DataProcessed("fdsa", 12).join("/n ")
 
 export default App;
