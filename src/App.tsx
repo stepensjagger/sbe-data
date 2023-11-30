@@ -13,30 +13,43 @@ function App() {
   };
 
   const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
     const dataProcessed = DataProcessed(dataToLoop, timesToLoop).join("\n");
     navigator.clipboard.writeText(dataProcessed.toString());
+    alert("The Data has Been Added to Clipboard\n (Press Any Key to Delete the Popup)")
   };
 
 
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        <input
-          type="number"
-          name="timesToLoop"
-          id="timesToLoop"
-          onChange={handleTimesToLoopChange}
-        />
-        <input
-          name="dataToLoop"
-          id="dataToLoop"
-          onChange={handleDataToLoopChange}
-        />
-        <input type="submit" value="Submit" />
-      </label>
+    <form onSubmit={handleSubmit} style={{alignContent:"center"}}>
+      <div style={{alignContent:"center", textAlign:"center"}}>
+        <h2>
+          Times to Loop
+          <br></br>
+          <label >
+            <input
+              type="number"
+              name="timesToLoop"
+              id="timesToLoop"
+              onChange={handleTimesToLoopChange}
+            />
+          </label>
+        </h2>
+        <h2>
+          Data to Loop
+          <br></br>
+          <label>
+            <input
+              name="dataToLoop"
+              id="dataToLoop"
+              onChange={handleDataToLoopChange}
+            />
+            <br></br>
+            <input type="submit" value="Submit" />
+          </label>
+        </h2>
+      </div>
     </form>
   );
 }
